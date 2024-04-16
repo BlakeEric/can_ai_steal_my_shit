@@ -1,38 +1,92 @@
 [
   {
     "name": "anthropic-ai",
-    "description": "Training bot for Anthropic's AI model, Claude."
+    "description": "Training bot for Anthropic's AI model, Claude.",
+    "developer": {
+      "name": "Anthropic",
+      "website": "https://www.anthropic.com/"
+    }
   },
   {
     "name": "Bytespider",
-    "description": "Training bot for ByteDance's (the Chinese owner of TikTok) AI services, including ChatGPT competitor Doubao."
+    "description": "Training bot for ByteDance's (the Chinese owner of TikTok) AI services, including ChatGPT competitor Doubao.",
+    "developer": {
+      "name": "ByteDance",
+      "website": "https://www.bytedance.com/"
+    }
+  },
+
+  {
+    "name": "CCBot",
+    "description": "Crawl bot for the Common Crawl dataset, used to train many AI services included ChatGPT 3.",
+    "developer": {
+      "name": "Common Crawl",
+      "website": "https://commoncrawl.org/"
+    }
   },
   {
     "name": "ChatGPT-User",
-    "description": "Used for enable ChatGPT to answer a query from a user by crawling and summarizing website content."
+    "description": "Used for enable ChatGPT to answer a user query by crawling and summarizing website content.",
+    "developer": {
+      "name": "Open AI",
+      "website": "https://openai.com/"
+    }
   },
   {
-    "name": "CCBot",
-    "description": "Crawl bot for the Common Crawl dataset, used to train many AI services included ChatGPT 3."
+    "name": "cohere-ai",
+    "description": "Used for enable Cohere's AI platform to answer a user query by crawling and summarizing website content.",
+    "developer": {
+      "name": "Cohere",
+      "website": "https://cohere.com/"
+    },
+    "verified": false
   },
   {
     "name": "Diffbot",
-    "description": "Scrapes and sells AI training data to third parties."
+    "description": "Scrapes and sells AI training data to third parties.",
+    "developer": {
+      "name": "Diffbot",
+      "website": "https://www.diffbot.com/"
+    }
   },
   {
     "name": "FacebookBot",
-    "description": "Meta's training bot currently used for AI speech recognition technology."
+    "description": "Meta's training bot currently used for AI speech recognition technology.",
+    "developer": {
+      "name": "Meta",
+      "website": "https://ai.meta.com/"
+    }
   },
   {
     "name": "Google-Extended",
-    "description": "Training bot for Google's AI services, such as Bard."
+    "description": "Training bot for Google's AI services such as Bard and Gemini.",
+    "developer": {
+      "name": "Google",
+      "website": "https://ai.google/"
+    }
   },
   {
     "name": "GPTBot",
-    "description": "OpenAI's training bot."
+    "description": "OpenAI's training bot for products like ChatGPT, Sora, and DALL-E.",
+    "developer": {
+      "name": "Open AI",
+      "website": "https://openai.com/"
+    }
   },
   {
-    "name": "omgili",
-    "description": "Scrapes and sells AI training data to third parties."
+    "name": "Omgilibot",
+    "description": "Scrapes and sells AI training data to third parties.",
+    "developer": {
+      "name": "Webz.io",
+      "website": "https://webz.io/"
+    }
+  },
+  {
+    "name": "Omgili",
+    "description": "Scrapes and sells AI training data to third parties.",
+    "developer": {
+      "name": "Webz.io",
+      "website": "https://webz.io/"
+    }
   }
 ]
