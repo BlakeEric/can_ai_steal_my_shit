@@ -1,0 +1,38 @@
+[
+  {
+    "name": "anthropic-ai",
+    "description": "Training bot for Anthropic's AI model, Claude."
+  },
+  {
+    "name": "Bytespider",
+    "description": "Training bot for ByteDance's (the Chinese owner of TikTok) AI services, including ChatGPT competitor Doubao."
+  },
+  {
+    "name": "ChatGPT-User",
+    "description": "Used for enable ChatGPT to answer a query from a user by crawling and summarizing website content."
+  },
+  {
+    "name": "CCBot",
+    "description": "Crawl bot for the Common Crawl dataset, used to train many AI services included ChatGPT 3."
+  },
+  {
+    "name": "Diffbot",
+    "description": "Scrapes and sells AI training data to third parties."
+  },
+  {
+    "name": "FacebookBot",
+    "description": "Meta's training bot currently used for AI speech recognition technology."
+  },
+  {
+    "name": "Google-Extended",
+    "description": "Training bot for Google's AI services, such as Bard."
+  },
+  {
+    "name": "GPTBot",
+    "description": "OpenAI's training bot."
+  },
+  {
+    "name": "omgili",
+    "description": "Scrapes and sells AI training data to third parties."
+  }
+]

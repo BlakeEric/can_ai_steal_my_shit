@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import bots from "../data/bots.json";
+const meta = { title: "Bots" };
+---
+
+<Layout meta={meta}>
+  <main>
+    <div>
+      <h1>List of known AI bots</h1>
+      <ul class="botlist">
+        {
+          bots.map((bot) => (
+            <li id={bot.name}>
+              <article>
+                <h4>
+                  <code>{bot.name}</code>
+                </h4>
+                <p>{bot.description}</p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</Layout>

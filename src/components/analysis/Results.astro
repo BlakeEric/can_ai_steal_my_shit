@@ -1,0 +1,29 @@
+---
+interface Props {
+  results: Array<any>;
+}
+
+const { results } = Astro.props;
+---
+
+<table>
+  <tbody>
+    {
+      results.map((result) => (
+        <tr>
+          <td style="min-width: 115px">
+            {result.allowed ? (
+              <strong class="warning">❗ Allowed</strong>
+            ) : (
+              <strong class="success">✅ Blocked</strong>
+            )}
+          </td>
+          <td>
+            <code>{result.name}</code>
+          </td>
+          <td>{result.description}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+---
+import { Code } from "astro-expressive-code/components";
+
+interface Props {
+  results: Array<any>;
+}
+
+const { results } = Astro.props;
+
+const filteredResults = results.filter((result) => result.allowed);
+---
+
+<p>
+  Disallow these bots by copying the code below and adding it to your website's
+  robots.txt file:
+</p>
+
+<Code
+  lang="txt"
+  title="robots.txt"
+  code=`
+# ^ your robots.txt content
+
+${filteredResults.map((result) => ('User-agent: ' + result.name + '\nDisallow: /')).join('\n\n')}
+`
+/>

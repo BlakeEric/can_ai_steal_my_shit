@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SearchForm from "../components/SearchForm.astro";
+const meta = { title: "Home" };
+---
+
+<Layout meta={meta}>
+  <!-- <MyElement client:load /> -->
+  <main>
+    <div>
+      <h1>Don't let AI steal your shit 🤖!</h1>
+      <p>
+        Enter the URL of your website to see if AI bots are permitted to crawl
+        your content.
+      </p>
+
+      <SearchForm />
+
+      <p>Questions? <a href="/faq">View FAQ page</a></p>
+    </div>
+  </main>
+</Layout>

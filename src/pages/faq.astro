@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+// import SearchForm from "../components/SearchForm.astro";
+// import Card from "../components/Card.astro";
+// import { MyElement } from "../components/my-element.ts";
+const meta = { title: "Frequently asked questions" };
+---
+
+<Layout meta={meta}>
+  <main>
+    <div>
+      <h1>Frequently Asked Questions</h1>
+
+      <details>
+        <summary>How does AI steal my shit?</summary>
+        <p>
+          AI companies use robots to crawl public websites on the internet and
+          train their large language models based on this content. Your content
+          can be used to generate profit for AI companies without being
+          attributed to you as its original creator.
+        </p>
+      </details>
+      <details>
+        <summary>
+          How does updating robots.txt keep AI from stealing my shit?
+        </summary>
+        <p>
+          A robots.txt file is the standard way of managing crawler traffic to
+          your site. The file is located at the root directory of your website
+          and implements the Robots Exclusion Protocol - used by websites to
+          indicate to visiting AI robots which portions of the website they are
+          permitted to access. Beyond AI bots, robots.txt can also be used to
+          allow or disallow other crawlers, such as search engine indexing bots,
+          from accessing your content.
+        </p>
+      </details>
+      <details>
+        <summary>
+          Can AI still steal my shit after I update my robots.txt file?
+        </summary>
+        <p>
+          Robots.txt is purely advisory and therefore it is up to the developer
+          of the bot to follow it. That said, as far as we know most large
+          companies (like the ones with access to enough resources to create
+          LLMs) adhere to the standards described in the Robots Exclusion
+          Protocol.
+        </p>
+      </details>
+    </div>
+  </main>
+</Layout>
