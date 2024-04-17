@@ -51,6 +51,7 @@ const { meta } = Astro.props;
 
       body > header {
         padding: 0;
+        border-bottom: 1px solid #ddd;
       }
 
       body > header nav {
@@ -65,6 +66,14 @@ const { meta } = Astro.props;
       body > header nav a {
         margin-left: 0;
         margin-right: 0;
+      }
+
+      body > header nav a.site-title {
+        text-transform: uppercase;
+        font-weight: 900;
+        word-spacing: -0.075rem;
+        padding: 0;
+        border: 0;
       }
 
       body > header nav a.secondary {
@@ -83,7 +92,7 @@ const { meta } = Astro.props;
       }
 
       .success {
-        color: var(--color-sucess);
+        color: var(--color-success);
       }
 
       main > div {
