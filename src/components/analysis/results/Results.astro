@@ -18,20 +18,14 @@ const { data } = Astro.props;
     </code>
   </small>
   <small>
-    &nbsp;<a href="/">(search again)</a>
+    <a href="/">(search again)</a>
   </small>
 </span>
 {
   data.isCrawlableByAi ? (
-    <>
-      <h1 class="warning">🚨 AI can steal your shit!</h1>
-      <p>The following bots are allowed to crawl your content:</p>
-    </>
+    <h1 class="warning">🚨 AI can steal your shit!</h1>
   ) : (
-    <>
-      <h1 class="success">✅ AI is not allowed to steal your shit!</h1>
-      <p>The following bots are blocked from crawling your content:</p>
-    </>
+    <h1 class="success">✅ AI is not allowed to steal your shit!</h1>
   )
 }
 <Details results={data.results} />

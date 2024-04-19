@@ -8,7 +8,7 @@ interface Props {
 
 const { results } = Astro.props;
 
-const [allowed, blocked] = partition(results, (item) => item.allowed);
+const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
 ---
 
 <div class="wrapper">
@@ -16,13 +16,17 @@ const [allowed, blocked] = partition(results, (item) => item.allowed);
     <h4>Allowed</h4>
     <ul class="bot-list">
       {
-        allowed.map((bot) => (
-          <li>
-            <span>
-              <code>🤖 {bot.name}</code>
-            </span>
-          </li>
-        ))
+        allowedBots.length === 0 ? (
+          <span>No known AI bots are permitted to crawl your website 😎.</span>
+        ) : (
+          allowedBots.map((bot) => (
+            <li>
+              <span>
+                <code>🤖 {bot.name}</code>
+              </span>
+            </li>
+          ))
+        )
       }
     </ul>
   </div>
@@ -30,13 +34,19 @@ const [allowed, blocked] = partition(results, (item) => item.allowed);
     <h4>Blocked</h4>
     <ul class="bot-list">
       {
-        blocked.map((bot) => (
-          <li>
-            <span>
-              <code>🤖 {bot.name}</code>
-            </span>
-          </li>
-        ))
+        blockedBots.length === 0 ? (
+          <span>
+            Modify your website's <code>robots.txt</code> file to block bots.
+          </span>
+        ) : (
+          blockedBots.map((bot) => (
+            <li>
+              <span>
+                <code>🤖 {bot.name}</code>
+              </span>
+            </li>
+          ))
+        )
       }
     </ul>
   </div>
