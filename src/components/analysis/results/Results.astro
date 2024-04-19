@@ -1,0 +1,38 @@
+---
+import type { ResponseData } from "../../../utils/analyse";
+import Details from "./Details.astro";
+import RobotsTxtExample from "./RobotsTxtExample.astro";
+
+interface Props {
+  data: ResponseData;
+}
+
+const { data } = Astro.props;
+---
+
+<span>
+  <small>
+    Results for:{" "}
+    <code>
+      <strong>{data.url}</strong>
+    </code>
+  </small>
+  <small>
+    &nbsp;<a href="/">(search again)</a>
+  </small>
+</span>
+{
+  data.isCrawlableByAi ? (
+    <>
+      <h1 class="warning">🚨 AI can steal your shit!</h1>
+      <p>The following bots are allowed to crawl your content:</p>
+    </>
+  ) : (
+    <>
+      <h1 class="success">✅ AI is not allowed to steal your shit!</h1>
+      <p>The following bots are blocked from crawling your content:</p>
+    </>
+  )
+}
+<Details results={data.results} />
+{data.isCrawlableByAi && <RobotsTxtExample results={data.results} />}

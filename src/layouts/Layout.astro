@@ -21,7 +21,8 @@ const { meta } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead {...meta} />
-  </head><body>
+  </head>
+  <body>
     <Header />
     <slot />
     <Footer />
@@ -34,7 +35,7 @@ const { meta } = Astro.props;
     <style is:global>
       :root {
         --color-warning: #d70000;
-        --color-success: green;
+        --color-success: #208638;
       }
 
       main {

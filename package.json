@@ -1,13 +1,13 @@
 {
-  "name": "flaky-filament",
+  "name": "can-ai-steal-my-shit",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "ts-lit-plugin": "^2.0.2"
+    "ts-lit-plugin": "^2.0.2",
+    "vitest": "^1.5.0"
   }
 }
