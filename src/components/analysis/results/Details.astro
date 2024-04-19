@@ -1,0 +1,65 @@
+---
+import { partition } from "../../../utils/partition";
+import type { ResponseData } from "../../../utils/analyse";
+
+interface Props {
+  results: ResponseData["results"];
+}
+
+const { results } = Astro.props;
+
+const [allowed, blocked] = partition(results, (item) => item.allowed);
+---
+
+<div class="wrapper">
+  <div>
+    <h4>Allowed</h4>
+    <ul class="bot-list">
+      {
+        allowed.map((bot) => (
+          <li>
+            <span>
+              <code>🤖 {bot.name}</code>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <h4>Blocked</h4>
+    <ul class="bot-list">
+      {
+        blocked.map((bot) => (
+          <li>
+            <span>
+              <code>🤖 {bot.name}</code>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  li {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 8px 4px 0px;
+  }
+</style>

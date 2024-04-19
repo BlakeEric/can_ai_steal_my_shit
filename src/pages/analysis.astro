@@ -1,46 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Results from "../components/analysis/Results.astro";
+import Results from "../components/analysis/results/Results.astro";
 import { analyse } from "../utils/analyse";
-import RobotsTxtExample from "../components/analysis/RobotsTxtExample.astro";
+import SearchError from "../components/analysis/SearchError.astro";
 
 const analysisUrl = Astro.url.searchParams.get("url");
 
 if (!analysisUrl) {
-  throw "OH NO - no param passed in";
+  return Astro.redirect("/");
 }
 
-const data = await analyse(analysisUrl);
-
-export const prerender = false;
+const analysisResp = await analyse(analysisUrl);
 
 const meta = {
   title: "Analysis of " + analysisUrl,
 };
+
+export const prerender = false;
 ---
 
 <Layout meta={meta}>
   <main>
     <div>
-      <span>
-        <small>Results for: <code><strong>{data.url}</strong></code></small>
-        <small>&nbsp;<a href="/">(search again)</a></small>
-      </span>
       {
-        data.isCrawlableByAi ? (
-          <>
-            <h1 class="warning">🚨 AI can steal your shit!</h1>
-            <p>The following bots are allowed to crawl your content:</p>
-          </>
+        analysisResp.success ? (
+          <Results data={analysisResp.data} />
         ) : (
-          <>
-            <h1 class="success">✅ AI is not allowed to steal your shit!</h1>
-            <p>The following bots are blocked from crawling your content:</p>
-          </>
+          <SearchError error={analysisResp.error} />
         )
       }
-      <Results results={data.results} />
-      {data.isCrawlableByAi && <RobotsTxtExample results={data.results} />}
     </div>
   </main>
 </Layout>

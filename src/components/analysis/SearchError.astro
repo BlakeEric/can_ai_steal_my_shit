@@ -1,0 +1,18 @@
+---
+import SearchForm from "../SearchForm.astro";
+
+interface Props {
+  error: string;
+}
+
+const { error } = Astro.props;
+---
+
+<h2>Oops! There was an error analysing that page.</h2>
+<p class="warning"><big>Error: {error}</big></p>
+<p>
+  Check that you entered your website's URL correctly and that your website
+  contains a valid <code>robots.txt</code> file.
+</p>
+<span>Search again:</span>
+<SearchForm />

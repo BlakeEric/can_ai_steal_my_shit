@@ -1,13 +1,13 @@
 ---
-// import aboutImg from "@/assets/about-astro.png";
 import SearchForm from "../components/SearchForm.astro";
 import Layout from "../layouts/Layout.astro";
-// import { Image } from "astro:assets";
 
 const meta = {
   description: "Oops! You found a missing page!",
   title: "Not found",
 };
+
+export const prerender = false;
 ---
 
 <Layout meta={meta}>

@@ -1,41 +1,63 @@
 import robotsParser from "robots-parser";
-import { getRobotsUrl, isValidUrl } from "./url";
+import { getFormattedUrlString, getRobotsUrl, validateUrlString } from "./url";
 import bots from "../data/bots.json";
 
-export const analyse = async (analysisUrl: string) => {
-  let formattedUrl = analysisUrl;
+export type ResponseData = {
+  url: string;
+  isCrawlableByAi: boolean;
+  results: Array<(typeof bots)[number] & { allowed: boolean }>;
+};
 
-  if (!/^https?:\/\//i.test(analysisUrl)) {
-    formattedUrl = "https://" + analysisUrl;
+type SuccessResponse = {
+  success: true;
+  data: ResponseData;
+};
+
+type ErrorResponse = {
+  success: false;
+  error: string;
+};
+
+const fetchRobotsTxtRaw = async (urlString: string) => {
+  const resp = await fetch(getRobotsUrl(urlString));
+
+  if (resp.status !== 200) {
+    throw new Error("Failed to fetch robots.txt file");
   }
 
-  if (!isValidUrl(formattedUrl)) {
-    throw "OH NO - not formatted";
-  }
+  return await resp.text();
+};
 
+export const analyse = async (
+  queryUrl: string
+): Promise<SuccessResponse | ErrorResponse> => {
   try {
-    const resp = await fetch(getRobotsUrl(formattedUrl));
+    const formattedUrlString = getFormattedUrlString(queryUrl);
 
-    if (resp.status !== 200) {
-      throw "Failed to fetch robots.txt file";
-    }
-    const robotsTxtRaw = await resp.text();
+    validateUrlString(formattedUrlString);
 
-    const robots = robotsParser(formattedUrl, robotsTxtRaw);
+    const robotsTxtRaw = await fetchRobotsTxtRaw(formattedUrlString);
+
+    const robotsTxtData = robotsParser(formattedUrlString, robotsTxtRaw);
 
     const results = bots.map((bot) => ({
       ...bot,
-      allowed: robots.isAllowed(formattedUrl, bot.name),
+      allowed: Boolean(robotsTxtData.isAllowed(formattedUrlString, bot.name)),
     }));
 
     return {
-      title: "Analysis of " + formattedUrl,
-      url: formattedUrl,
-      isCrawlableByAi:
-        results.findIndex((result) => result.allowed === true) !== -1,
-      results,
+      success: true,
+      data: {
+        url: formattedUrlString,
+        isCrawlableByAi:
+          results.findIndex((result) => result.allowed === true) !== -1,
+        results,
+      },
     };
   } catch {
-    throw "THERE WAS AN ERROR PARSING ";
+    return {
+      success: false,
+      error: "Unable to fetch robots.txt data",
+    };
   }
 };

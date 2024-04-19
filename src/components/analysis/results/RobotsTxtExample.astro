@@ -1,8 +1,9 @@
 ---
 import { Code } from "astro-expressive-code/components";
+import type { ResponseData } from "../../../utils/analyse";
 
 interface Props {
-  results: Array<any>;
+  results: ResponseData["results"];
 }
 
 const { results } = Astro.props;
