@@ -11,8 +11,8 @@ const { results } = Astro.props;
 const filteredResults = results.filter((result) => result.allowed);
 ---
 
-<p>
-  Disallow these bots by copying the code below and adding it to your website's
+<p id="fix">
+  Disallow bots by copying the code below and adding it to your website's
   <code>robots.txt</code> file:
 </p>
 
