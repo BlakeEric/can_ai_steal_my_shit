@@ -1,6 +1,7 @@
 import robotsParser from "robots-parser";
 import { getFormattedUrlString, getRobotsUrl, validateUrlString } from "./url";
 import bots from "../data/bots.json";
+import { fetchTxtRaw } from "./fetchTxtRaw";
 
 export type ResponseData = {
   url: string;
@@ -11,21 +12,13 @@ export type ResponseData = {
 type SuccessResponse = {
   success: true;
   data: ResponseData;
+  error?: never;
 };
 
 type ErrorResponse = {
   success: false;
   error: string;
-};
-
-const fetchRobotsTxtRaw = async (urlString: string) => {
-  const resp = await fetch(getRobotsUrl(urlString));
-
-  if (resp.status !== 200) {
-    throw new Error("Failed to fetch robots.txt file");
-  }
-
-  return await resp.text();
+  data?: never;
 };
 
 export const analyse = async (
@@ -36,7 +29,7 @@ export const analyse = async (
 
     validateUrlString(formattedUrlString);
 
-    const robotsTxtRaw = await fetchRobotsTxtRaw(formattedUrlString);
+    const robotsTxtRaw = await fetchTxtRaw(getRobotsUrl(formattedUrlString));
 
     const robotsTxtData = robotsParser(formattedUrlString, robotsTxtRaw);
 
@@ -57,6 +50,7 @@ export const analyse = async (
   } catch {
     return {
       success: false,
+      // TODO: send more detailed error info in response
       error: "Unable to fetch robots.txt data",
     };
   }
