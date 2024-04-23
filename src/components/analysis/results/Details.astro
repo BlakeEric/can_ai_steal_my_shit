@@ -54,13 +54,15 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
       ) : (
         <>
           <p>
-            You have requested the following bots not to index your content.
+            You have requested the following bots not to index your content ✅.
           </p>
           <ul class="bot-list">
             {blockedBots.map((bot) => (
               <li>
                 <span>
-                  <code>🤖 {bot.name}</code>
+                  <code>
+                    <span class="overlap">❌</span>🤖 {bot.name}
+                  </code>
                 </span>
               </li>
             ))}
@@ -85,6 +87,10 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
 
   h5 {
     margin-bottom: 0;
+  }
+
+  .overlap {
+    position: absolute;
   }
 
   ul {
