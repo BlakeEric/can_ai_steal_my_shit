@@ -18,7 +18,7 @@
 
   {
     "name": "CCBot",
-    "description": "Crawl bot for the Common Crawl dataset, used to train many AI services included ChatGPT 3.",
+    "description": "Crawl bot for the Common Crawl dataset, used to train many AI services including ChatGPT 3.",
     "developer": {
       "name": "Common Crawl",
       "website": "https://commoncrawl.org/"
