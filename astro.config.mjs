@@ -9,7 +9,14 @@ import preact from "@astrojs/preact";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.canaistealmyshit.com/",
-  integrations: [lit(), sitemap(), expressiveCode(), preact()],
+  integrations: [
+    lit(),
+    sitemap({
+      filter: (page) => page !== "https://www.canaistealmyshit.com/analysis/",
+    }),
+    expressiveCode(),
+    preact(),
+  ],
   output: "hybrid",
   adapter: vercel(),
 });
