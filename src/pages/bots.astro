@@ -11,7 +11,7 @@ const meta = { title: "Bots" };
       <ul class="botlist">
         {
           bots.map((bot) => (
-            <li id={bot.name}>
+            <li id={bot.name.toLowerCase()}>
               <article>
                 <h4>
                   <code>{bot.name}</code>

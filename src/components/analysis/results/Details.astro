@@ -1,6 +1,7 @@
 ---
 import { partition } from "../../../utils/partition";
 import type { ResponseData } from "../../../utils/analyse";
+import { BotList } from "../../BotList";
 
 interface Props {
   results: ResponseData["results"];
@@ -14,7 +15,6 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
 <div class="wrapper">
   <div>
     <h5>Allowed:</h5>
-
     {
       allowedBots.length === 0 ? (
         <p>No known AI bots are permitted to crawl your website 😎.</p>
@@ -26,15 +26,7 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
               <a href="#fix">Fix it.</a>
             </em>
           </p>
-          <ul class="bot-list">
-            {allowedBots.map((bot) => (
-              <li>
-                <span>
-                  <code>🤖 {bot.name}</code>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <BotList bots={allowedBots} client:load />
         </>
       )
     }
@@ -56,17 +48,7 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
           <p>
             You have requested the following bots not to index your content ✅.
           </p>
-          <ul class="bot-list">
-            {blockedBots.map((bot) => (
-              <li>
-                <span>
-                  <code>
-                    <span class="overlap">❌</span>🤖 {bot.name}
-                  </code>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <BotList bots={blockedBots} icon="❌🤖" client:load />
         </>
       )
     }
@@ -106,5 +88,9 @@ const [allowedBots, blockedBots] = partition(results, (item) => item.allowed);
     padding: 0.25rem 0.5rem;
     border: 1px solid;
     box-shadow: rgba(0, 0, 0, 0.03) 0px 8px 4px 0px;
+  }
+
+  li a {
+    text-decoration: none;
   }
 </style>
