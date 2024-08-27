@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import bots from "../data/bots.json";
+import styles from "./bots.module.css";
 const meta = { title: "Bots" };
 ---
 
@@ -12,7 +13,7 @@ const meta = { title: "Bots" };
         {
           bots.map((bot) => (
             <li id={bot.name.toLowerCase()}>
-              <article>
+              <article class={styles.article}>
                 <h4>
                   <code>{bot.name}</code>
                 </h4>

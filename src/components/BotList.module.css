@@ -10,6 +10,7 @@
 }
 
 .bot-list > li {
+  cursor: default;
   position: relative;
   padding: 0.25rem 0.5rem;
   border: 1px solid;
@@ -17,11 +18,8 @@
   overflow: visible;
 }
 
-.bot-list > li a {
-  text-decoration: none;
-}
-
 .popover {
+  display: none;
   border: 1px solid var(--border);
   border-radius: var(--standard-border-radius);
   position: absolute;
@@ -31,6 +29,10 @@
   z-index: 1000;
   padding: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.03) 0px 8px 4px 0px;
+}
+
+.bot-list > li:hover > .popover {
+  display: block;
 }
 
 .popover ul {
