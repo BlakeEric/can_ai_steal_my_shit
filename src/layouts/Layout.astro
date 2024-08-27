@@ -77,11 +77,15 @@ const { meta } = Astro.props;
         border: 0;
       }
 
-      body > header nav a.secondary {
+      body > header nav div a.secondary {
         border: none;
-        padding: 0;
+        padding: 0 1rem 0 0;
         text-decoration: underline;
         color: var(--accent);
+      }
+
+      body > header nav a.secondary:last-of-type {
+        padding-right: 0;
       }
 
       body > header nav a.secondary:hover {
