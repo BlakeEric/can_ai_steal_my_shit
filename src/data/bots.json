@@ -1,10 +1,10 @@
 [
   {
-    "name": "anthropic-ai",
-    "description": "Training bot for Anthropic's AI model, Claude.",
+    "name": "Applebot-Extended",
+    "description": "Used to train Apple’s LLM models. Supports generative AI features on Apple products such as Apple Intelligence.",
     "developer": {
-      "name": "Anthropic",
-      "website": "https://www.anthropic.com/"
+      "name": "Apple",
+      "website": "http://apple.com/go/applebot"
     }
   },
   {
@@ -15,7 +15,6 @@
       "website": "https://www.bytedance.com/"
     }
   },
-
   {
     "name": "CCBot",
     "description": "Crawl bot for the Common Crawl dataset, used to train many AI services including ChatGPT 3.",
@@ -40,6 +39,14 @@
       "website": "https://cohere.com/"
     },
     "verified": false
+  },
+  {
+    "name": "ClaudeBot",
+    "description": "Training bot for Anthropic's AI model, Claude.",
+    "developer": {
+      "name": "Anthropic",
+      "website": "https://www.anthropic.com/"
+    }
   },
   {
     "name": "Diffbot",
@@ -74,6 +81,14 @@
     }
   },
   {
+    "name": "meta-externalagent",
+    "description": "Crawls the web for training Meta's AI models.",
+    "developer": {
+      "name": "Meta",
+      "website": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers"
+    }
+  },
+  {
     "name": "Omgilibot",
     "description": "Scrapes and sells AI training data to third parties.",
     "developer": {
@@ -87,6 +102,14 @@
     "developer": {
       "name": "Webz.io",
       "website": "https://webz.io/"
+    }
+  },
+  {
+    "name": "Timpibot",
+    "description": "Scrapes data for Timpi's decentralized web index, which can be used to train Large Language Models.",
+    "developer": {
+      "name": "Timpi",
+      "website": "https://timpi.io/"
     }
   }
 ]
